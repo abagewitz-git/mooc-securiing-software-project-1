@@ -1,5 +1,6 @@
 LINK to gitrepo: https://github.com/abagewitz-git/mooc-securiing-software-project-1    
-The example uses the djangotutorial that is modified to exeplify 5 OWASP examples. The example uses standard python and should not need any specific installations. 
+The example uses the djangotutorial that is modified to exeplify 5 OWASP examples from this list: https://owasp.org/www-project-top-ten/. 
+The example uses standard python and should not need any specific installations. 
 
 Happy reviewing! 
 
