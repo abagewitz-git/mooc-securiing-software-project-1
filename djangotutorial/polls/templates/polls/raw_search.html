@@ -1,0 +1,20 @@
+<h1>Vulnerable raw SQL search (FLAW 3: A03 Injection)</h1>
+<form method="get" action="{% url 'polls:raw_search' %}">
+    <label for="q">Search term:</label>
+    <input type="text" id="q" name="q" value="{{ q }}" style="width: 320px;">
+    <button type="submit">Search</button>
+</form>
+
+{% if q %}
+    <p>Query used: SELECT id, question_text FROM polls_question WHERE question_text LIKE '%{{ q }}%'</p>
+{% endif %}
+
+{% if results %}
+    <ul>
+    {% for row in results %}
+        <li>ID {{ row.0 }}: {{ row.1 }}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No results.</p>
+{% endif %}

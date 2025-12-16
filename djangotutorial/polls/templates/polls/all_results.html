@@ -1,0 +1,43 @@
+<h1>All results (FLAW 4: Broken Access Control)</h1>
+<p>This page lists all questions, their choices, and vote counts without any authentication.</p>
+
+{% if questions %}
+<table border="1" cellspacing="0" cellpadding="6">
+    <thead>
+        <tr>
+            <th>Question ID</th>
+            <th>Question</th>
+            <th>Publish date</th>
+            <th>Choices (id: text — votes)</th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for question in questions %}
+        <tr>
+            <td>{{ question.id }}</td>
+            <td>{{ question.question_text }}</td>
+            <td>{{ question.pub_date }}</td>
+            <td>
+                <ul>
+                {% for choice in question.choice_set.all %}
+                    <li>{{ choice.id }}: {{ choice.choice_text }} — {{ choice.votes }} votes</li>
+                {% empty %}
+                    <li>No choices.</li>
+                {% endfor %}
+                </ul>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% else %}
+    <p>No questions found.</p>
+{% endif %}
+
+<p>
+    {% if user.is_authenticated %}
+        Current user: {{ user.username }}
+    {% else %}
+        Not logged in
+    {% endif %}
+</p>

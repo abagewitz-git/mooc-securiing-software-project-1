@@ -1,0 +1,24 @@
+<h1>Import questions from URL (FLAW 5: SSRF demo)</h1>
+<p>This is an fictional example of implementation of a feature that fetches data from a remote URL to "upload" questions and choices from an external source to add to the polling application.</p>
+<p>The functionality to creat questions and choices is not implemented, it's purely used as an exemple that could use import from external sources </p>
+<p>Enter a URL that the server will fetch. No allowlist or internal blocking is present in the vulnerable version.</p>
+<p>Example of expected JSON (description only, not parsed in this demo):<br>
+<code>{"questions": [{"text": "Question 1", "choices": ["A", "B"]}]}</code></p>
+
+<form method="get" action="{% url 'polls:import_from_url' %}">
+    <label for="url">URL to fetch:</label>
+    <input type="text" id="url" name="url" value="{{ target }}" style="width: 340px;">
+    <button type="submit">Hämta</button>
+</form>
+
+{% if target %}
+    <h2>Resultat</h2>
+    <p><strong>Fetched URL:</strong> {{ target }}</p>
+    {% if error %}
+        <pre>{{ error }}</pre>
+    {% elif content %}
+        <pre style="white-space: pre-wrap; border: 1px solid #ccc; padding: 8px; max-height: 300px; overflow: auto;">{{ content }}</pre>
+    {% else %}
+        <p>Inget innehåll.</p>
+    {% endif %}
+{% endif %}
