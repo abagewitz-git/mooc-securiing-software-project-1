@@ -1,6 +1,10 @@
 LINK to gitrepo: https://github.com/abagewitz-git/mooc-securiing-software-project-1.git
 The example uses the djangotutorial that is modified to exeplify 5 OWASP examples
 
+Happy reviewing! 
+
+/Anders
+
 ------------------------------------------------------------------------------------------------------------------------------
 FLAW 1: A05 - Security Misconfiguration https://owasp.org/Top10/2021/A05_2021-Security_Misconfiguration/
     Source code link:
