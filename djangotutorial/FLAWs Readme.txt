@@ -1,4 +1,4 @@
-LINK to gitrepo: https://github.com/abagewitz-git/mooc-securiing-software-project-1.git
+LINK to gitrepo: https://github.com/abagewitz-git/mooc-securiing-software-project-1    
 The example uses the djangotutorial that is modified to exeplify 5 OWASP examples
 
 Happy reviewing! 
